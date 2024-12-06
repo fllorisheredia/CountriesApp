@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'by/:id',
     component: CountryPageComponent,
   },
+  {
+    path: '**', //Cualquier ruta que no sea ningula de las anteriores s ele redirigira a la pagina home
+    redirectTo: 'by-capital'
+  }
 ]
 
 

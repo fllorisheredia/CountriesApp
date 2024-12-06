@@ -4,10 +4,12 @@ import { HomePageComponent } from './shared/pages/home-page/home-page.component'
 import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
 import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
 
-const routes: Routes = [{  //Se usa para que cuando en la barra de busqueda se ponga xxx/home se muestre la pagina indicada
+const routes: Routes = [
+  /*
+  {  //Se usa para que cuando en la barra de busqueda se ponga xxx/home se muestre la pagina indicada
   path: '', //Se indica la ruta
   component: HomePageComponent // Este es el componente que mostrara
-},
+},*/
 {
   path: 'about',
   component: AboutPageComponent
@@ -17,8 +19,12 @@ const routes: Routes = [{  //Se usa para que cuando en la barra de busqueda se p
   component: ContactPageComponent
 },
 {
+  path: 'countries',
+  loadChildren: () => import('./countries/countries.module').then(m=> m.CountriesModule) //Se carga el modulo de countries de forma "Perezosa "
+},
+{
   path: '**', //Cualquier ruta que no sea ningula de las anteriores s ele redirigira a la pagina home
-  redirectTo: ''
+  redirectTo: 'countries'
 }
 
 ];
